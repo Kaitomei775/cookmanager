@@ -4,7 +4,7 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
     try {
-      $db = new PDO('mysql:host=localhost;dbname=sample', 'watanabe', 'root');
+      $db = new PDO('mysql:host=localhost;dbname=sample', 'hogeUser', 'hogePass');
       $sql = 'insert into users(username, password) value(?, ?)';
       $stmt = $db->prepare($sql);
       $stmt->execute(array($username, $password));

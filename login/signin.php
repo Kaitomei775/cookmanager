@@ -6,7 +6,7 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
     try {
-      $db = new PDO('mysql:host=localhost;dbname=sample', 'watanabe', 'root');
+      $db = new PDO('mysql:host=localhost;dbname=sample', 'hogeUser', 'hogePass');
       $sql = 'select count(*) from users where username=? and password=?';
       $stmt = $db->prepare($sql);
       $stmt->execute(array($username, $password));
