@@ -32,7 +32,7 @@ public class Make_DB {
 
 
 		ArrayList<String> category_id = new ArrayList<String>();
-		// descriptionタグで囲まれた文字列を取得して返す
+		// タグで囲まれた文字列を取得して返す
 		if (response != null && response.length() > 0) {
 			int offset = 0;
 			while ((offset = response.indexOf("<", offset)) != -1) {
