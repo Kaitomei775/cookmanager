@@ -23,7 +23,7 @@
         $sql = "SELECT * FROM shokuzai";
         $stmt = $dbh->query($sql);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        echo "<table>\n";
+        echo "<table border='1'>\n";
         echo "<tr>\n";
         echo "<th>食材名</th><th>量</th><th>期限</th>\n";
         echo "</tr>\n";
