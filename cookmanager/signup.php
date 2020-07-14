@@ -29,7 +29,7 @@ purpose : アカウント作成処理
           $stmt->execute(array($username, $password));
           $stmt = null;
           $db = null;
-          header('Location: http://localhost/login/signin.php');
+          header('Location: http://160.16.141.77:61000/cookmaneger/signin.php');
           exit;
         }
       } catch (PDOException $e) {

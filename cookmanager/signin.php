@@ -24,9 +24,7 @@ purpose : ログイン処理
         $db = null;
 
         if ($result[0] != 0) {
-
-
-          header('Location: http://localhost/login/home.php');
+          header('Location: http://160.16.141.77:61000/cookmanager/home.php');
           session_start();
           session_cache_expire(1);
           $_SESSION["username"] = $username;
