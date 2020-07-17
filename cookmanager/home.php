@@ -35,6 +35,7 @@
           echo "<td>\n";
           echo "<a href=edit.php?id=" . htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8') . ">変更</a>\n";
           echo "|<a href=delete.php?id=" . htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8') . ">削除</a>\n";
+          echo "|<a href=recipe.php?id=" . htmlspecialchars($row['id'], ENT_QUOTES, 'UTF-8') . ">検索</a>\n";
           echo "</td>\n";
           echo "</tr>\n";
         }

@@ -15,7 +15,7 @@ purpose : ログイン処理
       $err_msg = "ユーザ名またはパスワードを入力してください";
     else {
       try {
-        $db = new PDO('mysql:host=160.16.141.77:61000;dbname=db_user', 'hogeUser', 'hogePass');
+        $db = new PDO('mysql:host=160.16.141.77:61000;dbname=db_user;charset=utf8', 'hogeUser', 'hogePass');
         $sql = 'select count(*) from users where username=? and password=?';
         $stmt = $db->prepare($sql);
         $stmt->execute(array($username, $password));
