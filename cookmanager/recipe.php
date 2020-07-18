@@ -34,13 +34,14 @@
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * FROM recipe";
         $stmt = $dbh->query($sql);
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($result as $row) {
-          if (strpos($result['recipe_title'], $shokuzai_name) !== false) {
+          if (strpos($row['recipe_title'], $shokuzai_name) !== false) {
+            echo $row['recipe_title'];
             echo "<br>\n";
-            echo "<a href=" . $result['recipe_url'] . ">レシピを見る</a>\n";
+            echo "<a href=" . $row['recipe_url'] . ">レシピを見る</a>\n";
             echo "<br>\n";
-            echo "<a href=" . $result['recipe_image_url'] . ">写真を見る</a>\n";
+            echo "<a href=" . $row['recipe_image_url'] . ">写真を見る</a>\n";
             echo "<br>\n";
             $a = "1";
             break;
