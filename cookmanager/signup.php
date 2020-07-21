@@ -1,26 +1,27 @@
 <!--
 name    : 片山
 date    : 2020.06.30
-purpose : アカウント作成処理
+purpose : アカウント新規作成処理
 -->
 
 <?php
   $err_msg = "";
-
   if (isset($_POST['signup'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if ($username == null or $password == null)
+    $password_test = $_POST['password_test'];
+    if ($username == null || $password == null || $password_test == null)
       $err_msg = "ユーザ名またはパスワードを入力してください";
+    else if ($password != $password_test)
+      $err_msg = "パスワードが一致していません";
     else {
       try {
-        $db = new PDO('mysql:host=160.16.141.77:61000;dbname=db_user;charset=utf8', 'hogeUser', 'hogePass');
+        $db = new PDO('mysql:host=160.16.141.77:61000;dbname=db_user', 'hogeUser', 'hogePass');
         $sql2 = 'select count(*) from users where username=?';
         $stmt = $db->prepare($sql2);
         $stmt->execute(array($username));
         $result = $stmt->fetch();
         $stmt = null;
-
         if ($result[0] != 0) {
           $err_msg = "入力されたユーザ名は既に使われています";
         } else {
@@ -38,9 +39,10 @@ purpose : アカウント作成処理
       }
     }
   }
-
+  if (isset($_POST['back'])) {
+    header('Location: signin.php');
+  }
 ?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -48,14 +50,17 @@ purpose : アカウント作成処理
     <title>新規登録画面</title>
   </head>
   <body>
-
     <h1>新規登録画面</h1>
     <form action="" method="post">
       <?php if ($err_msg !== null && $err_msg !== '') {echo $err_msg . "<br>";} ?>
-      ユーザ名　<input type="text" name="username" value=""><br>
-      パスワード<input type="password" name="password" value=""><br>
-      <input type="submit" name="signup" value="新規登録">
+      ユーザ名(4文字以上16文字以内の半角英数字)<br>
+      <input type="text" pattern="[a-zA-Z0-9]+" name="username" minlength="4" maxlength="16" value=""><br>
+      パスワード(4文字以上16文字以内の半角英数字)<br>
+      <input type="password" pattern="[a-zA-Z0-9]+" name="password" minlength="4" maxlength="16" value=""><br>
+      パスワード(確認用)<br>
+      <input type="password" pattern="[a-zA-Z0-9]+" name="password_test" minlength="4" maxlength="16"  value=""><br>
+      <input type="submit" name="signup" value="新規登録"><br>
+      <input type="submit" name="back" value="戻る">
     </form>
-
   </body>
 </html>

@@ -1,3 +1,9 @@
+<!--
+name    : 片山
+date    : 2020.07.21
+purpose : 食材編集処理
+-->
+
 <?php
   $user = "hogeUser";
   $pass = "hogePass";
@@ -26,17 +32,17 @@
     <title>入力フォーム</title>
   </head>
   <body>
-    <form method="post" action="update.php">
-      食材名：<input type="text" name="shokuzai_name" value="<?php echo htmlspecialchars($result['shokuzai_name'], ENT_QUOTES, 'UTF-8'); ?>">
+    <form method="post" action="update.php?user=<?php echo htmlspecialchars($result['user'], ENT_QUOTES, 'UTF-8'); ?>">
+      食材名：<input type="text" name="shokuzai_name" maxlength="20" value="<?php echo htmlspecialchars($result['shokuzai_name'], ENT_QUOTES, 'UTF-8'); ?>">
       <br>
       量　　：<input type="number" name="amount" value="<?php echo htmlspecialchars($result['amount'], ENT_QUOTES, 'UTF-8'); ?>">(g)
       <br>
-      期限　：<input type="text" name="date" value="<?php echo htmlspecialchars($result['date'], ENT_QUOTES, 'UTF-8'); ?>">
+      備考　：<input type="text" name="date" maxlength="100" value="<?php echo htmlspecialchars($result['date'], ENT_QUOTES, 'UTF-8'); ?>">
       <br>
       <input type="hidden" name="id" value="<?php echo htmlspecialchars($result['id'], ENT_QUOTES, 'UTF-8'); ?>">
       <input type="submit" value="変更">
     </form>
     <br>
-    <a href='home.php'>トップページへ戻る</a>
+    <a href='home.php?user=<?php echo htmlspecialchars($result['user'], ENT_QUOTES, 'UTF-8'); ?>'>トップページへ戻る</a>
   </body>
 </html>

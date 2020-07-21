@@ -1,3 +1,9 @@
+<!--
+name    : 片山
+date    : 2020.07.21
+purpose : 食材削除処理
+-->
+
 <?php
   $user = "hogeUser";
   $pass = "hogePass";
@@ -13,7 +19,7 @@
     $stmt->execute();
     $dbh = null;
     echo "食材の削除が完了しました。<br>";
-    echo "<a href='home.php'>トップページへ戻る</a>";
+    echo "<a href='home.php?user=" . $_GET['user'] . "'>トップページへ戻る</a>";
   } catch (Exception $e) {
     echo "error: " . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8') . "<br>";
     die();

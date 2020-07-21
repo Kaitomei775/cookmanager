@@ -1,3 +1,9 @@
+<!--
+name    : 片山
+date    : 2020.07.21
+purpose : レシピ検索処理
+-->
+
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -24,11 +30,7 @@
         echo "error: " . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8') . "<br>";
         die();
       }
-
       $shokuzai_name = $result['shokuzai_name'];
-
-      // $username = "test_user1";
-      // $userpass = "pracb2020";
       try {
         $dbh = new PDO('mysql:host=160.16.141.77:61000;dbname=cooksample;charset=utf8', $user, $pass);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -48,15 +50,15 @@
           }
         }
         if (empty($a)) {
-          print_r($shokuzai_name . "を含むレシピを検索できませんでした。");
+          echo $shokuzai_name . "を含むレシピを検索できませんでした。<br>";
+          echo "食材名をひらがなやカタカナに変えて検索してみてください。";
         }
-        $dbh = null;
       } catch (Exception $e) {
         echo "error: " . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8') . "<br>";
         die();
       }
-
     ?>
-
+    <br>
+    <a href='home.php?user=<?php echo $_GET['user']; ?>'>トップページへ戻る</a>
   </body>
 </html>
