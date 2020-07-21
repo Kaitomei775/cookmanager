@@ -14,7 +14,7 @@ purpose : アカウント作成処理
       $err_msg = "ユーザ名またはパスワードを入力してください";
     else {
       try {
-        $db = new PDO('mysql:host=160.16.141.77:61000;dbname=db_user;charset=utf8', 'hogeUser', 'hogePass');
+        $db = new PDO('mysql:host=127.0.0.1:61000;dbname=db_user;charset=utf8', 'hogeUser', 'hogePass');
         $sql2 = 'select count(*) from users where username=?';
         $stmt = $db->prepare($sql2);
         $stmt->execute(array($username));
