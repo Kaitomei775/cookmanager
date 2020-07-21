@@ -30,7 +30,7 @@
       // $username = "test_user1";
       // $userpass = "pracb2020";
       try {
-        $dbh = new PDO('mysql:host=160.16.141.77:61000;dbname=cooksample;charset=utf8', $user, $pass);
+        $dbh = new PDO('mysql:host=127.0.0.1:61000;dbname=cooksample;charset=utf8', $user, $pass);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * FROM recipe";
         $stmt = $dbh->query($sql);
