@@ -17,7 +17,7 @@ purpose : レシピ検索処理
       try {
         if (empty($_GET['id'])) throw new Exception('ID不正');
         $id = (int) $_GET['id'];
-        $dbh = new PDO('mysql:host=160.16.141.77:61000;dbname=db_shokuzai;charset=utf8', $user, $pass);
+        $dbh = new PDO('mysql:host=127.0.0.1:61000;dbname=db_shokuzai;charset=utf8', $user, $pass);
         $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * FROM shokuzai WHERE id = ?";
@@ -32,7 +32,7 @@ purpose : レシピ検索処理
       }
       $shokuzai_name = $result['shokuzai_name'];
       try {
-        $dbh = new PDO('mysql:host=160.16.141.77:61000;dbname=cooksample;charset=utf8', $user, $pass);
+        $dbh = new PDO('mysql:host=127.0.0.1:61000;dbname=cooksample;charset=utf8', $user, $pass);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * FROM recipe";
         $stmt = $dbh->query($sql);
