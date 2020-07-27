@@ -12,7 +12,7 @@ purpose : 新規食材追加処理
   $amount = (int) $_POST['amount'];
   $date = $_POST['date'];
   try {
-    $dbh = new PDO('mysql:host=160.16.141.77:61000;dbname=db_shokuzai;charset=utf8', $user, $pass);
+    $dbh = new PDO('mysql:host=127.0.0.1:61000;dbname=db_shokuzai;charset=utf8', $user, $pass);
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "INSERT INTO shokuzai (user, shokuzai_name, amount, date) VALUES(?, ?, ?, ?)";
