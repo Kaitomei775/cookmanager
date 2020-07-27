@@ -13,7 +13,7 @@ purpose : 食材情報更新処理
   try {
     if (empty($_POST['id'])) throw new Exception("ID不正");
     $id = (int) $_POST['id'];
-    $dbh = new PDO('mysql:host=160.16.141.77:61000;dbname=db_shokuzai;charset=utf8', $user, $pass);
+    $dbh = new PDO('mysql:host=127.0.0.1:61000;dbname=db_shokuzai;charset=utf8', $user, $pass);
     $dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "UPDATE shokuzai SET shokuzai_name = ?, amount = ?, date = ? WHERE id = ?";
