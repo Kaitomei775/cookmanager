@@ -17,7 +17,7 @@ purpose : ホーム画面(食材一覧表示処理)
         $user = "hogeUser";
         $pass = "hogePass";
         $username = $_GET['user'];
-        $dbh = new PDO('mysql:host=160.16.141.77:61000;dbname=db_shokuzai;charset=utf8', $user, $pass);
+        $dbh = new PDO('mysql:host=127.0.0.1:61000;dbname=db_shokuzai;charset=utf8', $user, $pass);
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "SELECT * FROM shokuzai";
         $stmt = $dbh->query($sql);
